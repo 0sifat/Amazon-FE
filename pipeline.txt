@@ -62,7 +62,7 @@ pipeline{
         }
         stage("TRIVY"){
             steps{
-                sh "trivy image sifat198/amazon:latest > trivyimage.txt"
+                sh "trivy image --timeout 10m sifat198/amazon:latest > trivyimage.txt"
             }
         }
 		stage('Deploy to container'){
